@@ -34,7 +34,8 @@ buildOnTarget="$5"
 sshPrivateKey="$6"
 action="$7"
 deleteOlderThan="$8"
-shift 8
+copyConcurrency="$9"
+shift 9
 
 # remove the last argument
 set -- "${@:1:$(($# - 1))}"
@@ -59,7 +60,7 @@ log() {
 }
 
 copyToTarget() {
-  NIX_SSHOPTS="${sshOpts[*]}" nix-copy-closure --to "$targetHost" "$@"
+  NIX_SSHOPTS="${sshOpts[*]}" nix-copy-closure -j "$copyConcurrency" --to "$targetHost" "$@"
 }
 
 # assumes that passwordless sudo is enabled on the server
