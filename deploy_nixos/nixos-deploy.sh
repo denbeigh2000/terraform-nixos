@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # nixos-deploy deploys a nixos-instantiate-generated drvPath to a target host
 #
-# Usage: nixos-deploy.sh <drvPath> <host> <switch-action> [<build-opts>] ignoreme
+# Usage: nixos-deploy.sh <drvPath> <host> <switch-action> <deleteOlderThan> [<build-opts>] ignoreme
 set -euo pipefail
 
 ### Defaults ###
